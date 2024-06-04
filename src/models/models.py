@@ -2,18 +2,6 @@ from sqlalchemy import MetaData, Table, Column, String, BigInteger, Text, Foreig
 
 metadata = MetaData()
 
-user = Table(
-    'user',
-    metadata,
-    Column('id', BigInteger, primary_key=True, autoincrement=True),
-    Column('username', String, nullable=False),
-    Column('email', String, unique=True, nullable=False),
-    Column('hashed_password', String(length=320), nullable=False),
-    Column('is_active', Boolean, default=True, nullable=False),
-    Column('is_superuser', Boolean, default=False, nullable=False),
-    Column('is_verified', Boolean, default=False, nullable=False)
-)
-
 priority_table = Table(
     'priority',
     metadata,
