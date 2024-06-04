@@ -1,0 +1,6 @@
+fastapi
+fastapi-users[SQLAlchemy]
+uvicorn
+alembic
+SQLAlchemy
+asyncpg
