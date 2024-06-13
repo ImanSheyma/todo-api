@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
-from .priority import Priority
-from category import CategoryBase
+from src.schemas.priority import Priority
+from src.schemas.tag import TagRead
 
 class TodoBase(BaseModel):
     content: str
@@ -10,7 +10,7 @@ class TodoRead(TodoBase):
     id: int
     is_completed: bool
     priority: Priority
-    category: CategoryBase
+    tag: TagRead
     
     class Congig:
         orm_mode: True
@@ -18,7 +18,7 @@ class TodoRead(TodoBase):
 
 class TodoCreate(TodoBase):
     priority_id: int
-    category_id: int
+    tag_id: int
 
 
 class TodoUpdate(TodoCreate):

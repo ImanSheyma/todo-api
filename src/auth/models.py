@@ -1,7 +1,7 @@
 from sqlalchemy import MetaData, Table, Column, String, BigInteger, Boolean
 from fastapi_users_db_sqlalchemy import SQLAlchemyBaseUserTable
 
-from ..database import Base
+from src.database import Base
 
 metadata = MetaData()
 
@@ -10,8 +10,8 @@ user = Table(
     metadata,
     Column('id', BigInteger, primary_key=True, autoincrement=True),
     Column('username', String, nullable=False),
-    Column('email', String, unique=True, nullable=False),
-    Column('hashed_password', String(length=320), nullable=False),
+    Column('email', String, unique=True, index=True, nullable=False),
+    Column('hashed_password', String(length=1024), nullable=False),
     Column('is_active', Boolean, default=True, nullable=False),
     Column('is_superuser', Boolean, default=False, nullable=False),
     Column('is_verified', Boolean, default=False, nullable=False)
